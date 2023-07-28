@@ -47,8 +47,10 @@ const Movies = () => {
         
     return (
       <div>
+        {isLoading}
         <Searchbar onSubmit={handleSubmit} />
         {movies.length > 0 && <MoviesList movies={movies} />}
+        {error && Notify.failure(`${error}`)}
       </div>
     );
 }

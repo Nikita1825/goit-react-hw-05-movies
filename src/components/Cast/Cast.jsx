@@ -31,26 +31,28 @@ const Cast = () => {
       }, [id]);
    
     return (
-        <div>
-            {error && <p>Oops! Something went wrong!</p>}
-            {cast.length > 0 ? (
-                <ul>
-                    {cast.map(actor => {
-                        const actorsPhoto = actor.profile_path
-                          ? `https://image.tmdb.org/t/p/w92${actor.profile_path}`
-                          : defaultImage;
-                        return (
-                            <li key={actor.id}>
-                                <img src={actorsPhoto} alt='NonPhoto' />
-                                <p>{actor.original_name}</p>
-                                <p>Character: {actor.character}</p>
-                            </li>
-                        );
-                    })}
-                </ul>
-            ) : (
-                <p>We don't have any casts for this movie.</p>)}
-        </div>
-    )
+      <div>
+        {isLoading }
+        {error && <p>Oops! Something went wrong!</p>}
+        {cast.length > 0 ? (
+          <ul>
+            {cast.map(actor => {
+              const actorsPhoto = actor.profile_path
+                ? `https://image.tmdb.org/t/p/w92${actor.profile_path}`
+                : defaultImage;
+              return (
+                <li key={actor.id}>
+                  <img src={actorsPhoto} alt="NonPhoto" />
+                  <p>{actor.original_name}</p>
+                  <p>Character: {actor.character}</p>
+                </li>
+              );
+            })}
+          </ul>
+        ) : (
+          <p>We don't have any casts for this movie.</p>
+        )}
+      </div>
+    );
 }
 export default Cast

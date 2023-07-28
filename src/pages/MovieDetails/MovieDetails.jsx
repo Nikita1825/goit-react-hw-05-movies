@@ -41,6 +41,7 @@ const MovieDetails = () => {
 
     return (
       <main>
+        {isLoading}
         {error && <p>Oops! Something went wrong!</p>}
         <Link className={css.goBack} to={backLinkHref.current}>
           <button className={css.back}>← Go back</button>

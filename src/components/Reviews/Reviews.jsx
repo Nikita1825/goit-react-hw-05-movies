@@ -31,6 +31,7 @@ const Reviews = () => {
     
     return (
       <div>
+        {isLoading}
         {error && <p>Oops! Something went wrong!</p>}
         {reviews.length > 0 ? (
           <ul>

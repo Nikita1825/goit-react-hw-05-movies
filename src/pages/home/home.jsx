@@ -3,6 +3,7 @@ import { getTrendsMovies } from 'components/Api/api';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const Home = () => {
      const [movies, setMovies] = useState([]);
      const [isLoading, setIsLoading] = useState(false);
@@ -32,13 +33,9 @@ const Home = () => {
   return (
     <div>
       <main>
-      
-
-        {/* <Section title="Trending today"> */}
         {movies.length > 0 && <MoviesList movies={movies} />}
-        {/* {isLoading && <Loader />}
-          {hasError && <ErrorMessage>{error}</ErrorMessage>} */}
-        {/* </Section> */}
+        {isLoading}
+        {hasError && Notify.failure(`${error}`)}
       </main>
     </div>
   );
